@@ -1,0 +1,18 @@
+---
+# tasks file for roles/ftpserver
+- name: CentOS - Install FTP package (vsftpd)
+  ansible.builtin.yum:
+    name: vsftpd
+    state: latest
+
+- name: CentOS - Start FTP Service
+  ansible.builtin.service:
+    name: vsftpd
+    state: started
+    enabled: yes
+
+- name: CentOS - Restart vsftpd
+  ansible.builtin.service:
+    name: vsftpd
+    state: restarted
+    enabled: yes
